@@ -31,7 +31,16 @@ userSchema.pre("save", async function(){
 })
 
 
-const UserModel = db.model("user", userSchema)
+const User = db.model("User", userSchema)
 
 
-module.exports = UserModel;
+module.exports = User;
+
+
+
+
+
+
+
+
+

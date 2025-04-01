@@ -3,6 +3,12 @@ const UserController = require("../controller/user.controller")
 
 
 
-router.post("/register", UserController.register)
+router.post("/api/register", UserController.register)
 
 module.exports = router;
+
+
+
+
+
+
