@@ -1,11 +1,11 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const connection = mongoose.createConnection("mongodb://localhost:27017/").on("open", ()=>{
-    console.log("Connection successfully");
-    
-}).on("error", ()=>{
-    console.log("MongoDb connection failed");
-    
-})
+const MONGO_URI = "mongodb://127.0.0.1:27017/biteupapi"; // Change DB name
 
-module.exports = connection;
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.error("❌ MongoDB Connection Error:", err));
+
+module.exports = mongoose;

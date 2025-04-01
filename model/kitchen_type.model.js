@@ -1,17 +1,16 @@
-import mongoose from "mongoose";
-import db from "../config/db.js"; 
+const mongoose = require("mongoose")
+const db = require("../config/db")
 const { Schema } = mongoose;
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const KitchenTypeSchema = new Schema({
-    name: { 
-        type: String, 
-        required: true, 
-        unique: true 
-    },
-    description: String,
-    constraints: mongoose.Schema.Types.Mixed
+    // _id: Number,
+    name: { type: String, required: true },
+    description: { type: String, required: true },
+    constraints: { type: Object, default: {} }
 }, { timestamps: true });
+// KitchenTypeSchema.plugin(AutoIncrement, { id: 'kitchen_id_counter', inc_field: '_id' });
 
 const KitchenType = db.model("KitchenType", KitchenTypeSchema);
 
-export default KitchenType;
+module.exports = KitchenType;

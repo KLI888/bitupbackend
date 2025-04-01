@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+const db = require("../config/db");
 
 const KitchenSchema = new mongoose.Schema({
     kitchen_type_id: { 
@@ -73,6 +74,8 @@ const KitchenSchema = new mongoose.Schema({
     tax_identification_number: String
 }, { timestamps: true });
 
-const Kitchen = mongoose.model("Kitchen", KitchenSchema);
 
-export default Kitchen;
+
+const Kitchen = db.model("Kitchen", KitchenSchema);
+
+module.exports =  Kitchen;

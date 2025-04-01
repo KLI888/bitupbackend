@@ -1,16 +1,12 @@
-const router = require("express").Router()
-import { 
-    createKitchenType, 
-    getKitchenTypes, 
-    getKitchenTypeById, 
-    updateKitchenType, 
-    deleteKitchenType 
-} from "../controller/kitchenType.controller"
+const express = require("express");
+const KitchenTypeController = require("../controller/kitchenType.controller");
 
-router.post("/api/kitchenType", createKitchenType);
-// router.get("/api/kitchenType", getKitchenTypes);
-// router.get("/api/kitchenType/:id", getKitchenTypeById);
-// router.put("/api/kitchenType/:id", updateKitchenType);
-// router.delete("/api/kitchenType/:id", deleteKitchenType)
+const router = express.Router();
 
-module.exports = router
+router.post("/", KitchenTypeController.create); // Create a KitchenType
+router.get("/", KitchenTypeController.getAll); // Get all KitchenTypes
+router.get("/:id", KitchenTypeController.getById); // Get a specific KitchenType
+router.put("/:id", KitchenTypeController.update); // Update a KitchenType
+router.delete("/:id", KitchenTypeController.delete); // Delete a KitchenType
+
+module.exports = router;
