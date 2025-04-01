@@ -6,6 +6,7 @@ const ThaliSchema = new mongoose.Schema(
     name: { type: String, required: true, unique: true },
     description: { type: String },
     basePrice: { type: Number, required: true },
+    kitchen: { type: mongoose.Schema.Types.ObjectId, ref: "Kitchen", unique: false }, 
 
     // Available options
     sabjis: {

@@ -13,3 +13,5 @@ app.use("/api/kitchenType", KitchenTypeRouter);
 app.use("/api/kitchen", KitchenRouter);
 app.use("/api/thalis", ThalisRouter);
 module.exports = app
+
+
