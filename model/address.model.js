@@ -1,4 +1,5 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose")
+const db = require("../config/db")
 
 const AddressSchema = new mongoose.Schema({
     user_id: { 
@@ -52,6 +53,6 @@ const AddressSchema = new mongoose.Schema({
 // Create an index to ensure only one default address per user
 AddressSchema.index({ user_id: 1, is_default: 1 }, { unique: true, partialFilterExpression: { is_default: true } });
 
-const Address = mongoose.model("Address", AddressSchema);
+const Address = db.model("Address", AddressSchema);
 
-export default Address;
+module.exports = Address;
